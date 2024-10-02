@@ -1,6 +1,7 @@
 # !/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
+import random
 
 import pygame.display
 from xml.dom.minidom import Entity
@@ -9,7 +10,7 @@ from typing import List
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import COLOR_WHITE, WIN_HEIGHT
+from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME
 from code.EntityFactory import EntityFactory
 
 
@@ -20,6 +21,11 @@ class Level:
         self.game_mode = game_mode
         self.entity_list: List[Entity] = []  # Inicializa uma lista vazia de entidades
         self.entity_list.extend(EntityFactory.get_entity('level1Bg'))
+        self.entity_list.append(EntityFactory.get_entity('Player1'))
+        if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
+            self.entity_list.append(EntityFactory.get_entity('Player2'))
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
+
         self.timeout = 2000  # 20 segundos
 
     def run(self, clock):  # Agora aceita o argumento clock
@@ -35,6 +41,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('Enemy1', 'Enemy2'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
 
             # printed text
             text_size = 14  # Define text_size aqui
