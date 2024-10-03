@@ -17,7 +17,9 @@ ENTITY_SPEED = {
     'level1Bg5' : 5,
     'level1Bg6' : 6,
     'Player1': 3,
+    'Player1Shot': 1,
     'Player2': 3,
+    'Player2Shot': 3,
     'Enemy1' : 2,
     'Enemy2' : 1,
 }
@@ -31,7 +33,9 @@ ENTITY_HEALTH = {
     'level1Bg5': 999,
     'level1Bg6': 999,
     'Player1': 300,
+    'Player1Shot': 1,
     'Player2': 300,
+    'Player2Shot': 1,
     'Enemy1': 50,
     'Enemy2': 60,
 }
