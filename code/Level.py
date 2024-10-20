@@ -39,7 +39,7 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
-                if isinstance(ent, Player):  # Apenas Player vai chamar o método shoot
+                if isinstance(ent, (Player, Enemy)):  # Apenas Player vai chamar o metodo shoot
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
