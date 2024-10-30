@@ -1,12 +1,34 @@
 # C
+from turtledemo.nim import COLOR
+
 import pygame
 
-COLOR_ORANGE = (255, 128, 0)
-COLOR_WHITE = (255, 255, 255)
-COLOR_YELLOW = (255, 242, 0)
+C_ORANGE = (255, 128, 0)
+C_WHITE = (255, 255, 255)
+C_YELLOW = (255, 242, 0)
+C_GREE = (0, 128, 0)
+C_CYAN = (0, 128, 128)
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1
+
+ENTITY_SCORE = {
+    'level1Bg0' : 0,
+    'level1Bg1' : 0,
+    'level1Bg2' : 0,
+    'level1Bg3' : 0,
+    'level1Bg4' : 0,
+    'level1Bg5' : 0,
+    'level1Bg6' : 0,
+    'Player1': 0,
+    'Player1Shot': 0,
+    'Player2': 0,
+    'Player2Shot': 0,
+    'Enemy1' : 100,
+    'Enemy1Shot': 0,
+    'Enemy2' : 125,
+    'Enemy2Shot': 0,
+}
 
 ENTITY_SPEED = {
     'level1Bg0' : 0,
@@ -38,10 +60,28 @@ ENTITY_HEALTH = {
     'Player1Shot': 1,
     'Player2': 300,
     'Player2Shot': 1,
-    'Enemy1': 2,
+    'Enemy1': 50,
     'Enemy1Shot': 1,
-    'Enemy2': 1,
+    'Enemy2': 60,
     'Enemy2Shot': 1,
+}
+
+ENTITY_DAMAGE = {
+    'level1Bg0': 0,
+    'level1Bg1': 0,
+    'level1Bg2': 0,
+    'level1Bg3': 0,
+    'level1Bg4': 0,
+    'level1Bg5': 0,
+    'level1Bg6': 0,
+    'Player1': 1,
+    'Player1Shot': 25,
+    'Player2': 1,
+    'Player2Shot': 20,
+    'Enemy1': 1,
+    'Enemy1Shot': 20,
+    'Enemy2': 1,
+    'Enemy2Shot': 15,
 }
 
 
