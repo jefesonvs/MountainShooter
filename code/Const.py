@@ -10,41 +10,55 @@ C_GREE = (0, 128, 0)
 C_CYAN = (0, 128, 128)
 
 # E
+
+
 EVENT_ENEMY = pygame.USEREVENT + 1
 
+EVENT_TIMEOUT = pygame.USEREVENT + 2
+
 ENTITY_SCORE = {
-    'level1Bg0' : 0,
-    'level1Bg1' : 0,
-    'level1Bg2' : 0,
-    'level1Bg3' : 0,
-    'level1Bg4' : 0,
-    'level1Bg5' : 0,
-    'level1Bg6' : 0,
+    'level1Bg0': 0,
+    'level1Bg1': 0,
+    'level1Bg2': 0,
+    'level1Bg3': 0,
+    'level1Bg4': 0,
+    'level1Bg5': 0,
+    'level1Bg6': 0,
+    'level2Bg0': 0,
+    'level2Bg1': 0,
+    'level2Bg2': 0,
+    'level2Bg3': 0,
+    'level2Bg4': 0,
     'Player1': 0,
     'Player1Shot': 0,
     'Player2': 0,
     'Player2Shot': 0,
-    'Enemy1' : 100,
+    'Enemy1': 100,
     'Enemy1Shot': 0,
-    'Enemy2' : 125,
+    'Enemy2': 125,
     'Enemy2Shot': 0,
 }
 
 ENTITY_SPEED = {
-    'level1Bg0' : 0,
-    'level1Bg1' : 1,
-    'level1Bg2' : 2,
-    'level1Bg3' : 3,
-    'level1Bg4' : 4,
-    'level1Bg5' : 5,
-    'level1Bg6' : 6,
+    'level1Bg0': 0,
+    'level1Bg1': 1,
+    'level1Bg2': 2,
+    'level1Bg3': 3,
+    'level1Bg4': 4,
+    'level1Bg5': 5,
+    'level1Bg6': 6,
+    'level2Bg0': 0,
+    'level2Bg1': 1,
+    'level2Bg2': 2,
+    'level2Bg3': 3,
+    'level2Bg4': 4,
     'Player1': 3,
     'Player1Shot': 1,
     'Player2': 3,
     'Player2Shot': 3,
-    'Enemy1' : 1,
+    'Enemy1': 1,
     'Enemy1Shot': 5,
-    'Enemy2' : 1,
+    'Enemy2': 1,
     'Enemy2Shot': 2,
 }
 
@@ -56,6 +70,11 @@ ENTITY_HEALTH = {
     'level1Bg4': 999,
     'level1Bg5': 999,
     'level1Bg6': 999,
+    'level2Bg0': 999,
+    'level2Bg1': 999,
+    'level2Bg2': 999,
+    'level2Bg3': 999,
+    'level2Bg4': 999,
     'Player1': 300,
     'Player1Shot': 1,
     'Player2': 300,
@@ -74,6 +93,11 @@ ENTITY_DAMAGE = {
     'level1Bg4': 0,
     'level1Bg5': 0,
     'level1Bg6': 0,
+    'level2Bg0': 0,
+    'level2Bg1': 0,
+    'level2Bg2': 0,
+    'level2Bg3': 0,
+    'level2Bg4': 0,
     'Player1': 1,
     'Player1Shot': 25,
     'Player2': 1,
@@ -84,14 +108,12 @@ ENTITY_DAMAGE = {
     'Enemy2Shot': 15,
 }
 
-
 ENTITY_SHOT_DELAY = {
     'Player1': 20,
     'Player2': 15,
     'Enemy1': 100,
     'Enemy2': 200,
 }
-
 
 # M
 MENU_OPTION = ('NEW GAME 1P',
@@ -109,6 +131,10 @@ PLAYER_KEY_SHOOT = {'Player1': pygame.K_m, 'Player2': pygame.K_LCTRL}
 
 # S
 SPAWN_TIME = 4000
+
+# T
+TIMEOUT_STEP = 100  # 100ms
+TIMEOUT_LEVEL = 20000  # 20S
 
 # W
 WIN_WIDTH = 576
