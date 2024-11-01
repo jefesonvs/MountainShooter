@@ -1,5 +1,4 @@
 # Game.py
-
 # !/usr/bin/python
 # -*- coding: utf-8 -*-
 import pygame
@@ -30,7 +29,10 @@ class Game:
                     level = Level(self.window, 'Level2', menu_return, player_score)
                     level_return = level.run(player_score, self.clock)  # Passa player_score e clock
                     if level_return:
-                        score.save(menu_return, player_score)
+                        level = Level(self.window, 'Level3', menu_return, player_score)  # Adiciona o Level 3
+                        level_return = level.run(player_score, self.clock)  # Executa o Level 3
+                        if level_return:  # Verifica se o Level 3 foi concluído
+                            score.save(menu_return, player_score)  # Chama a tela de score
 
             elif menu_return == MENU_OPTION[3]:
                 score.show()

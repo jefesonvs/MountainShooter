@@ -5,7 +5,6 @@ import random
 
 import pygame.display
 
-
 from pygame import Surface, Rect
 from pygame.font import Font
 
@@ -15,12 +14,14 @@ from code.Enemy import Enemy
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
 from code.Player import Player
-from code.Entity import Entity  # Importada a classe Entity correta
+from code.Entity import Entity
 
 
 class Level:
     def __init__(self, window: Surface, name: str, game_mode: str, player_score: list[int]):
         self.timeout = TIMEOUT_LEVEL
+        if name == 'Level3':
+            self.timeout *= 1
         self.window = window
         self.name = name
         self.game_mode = game_mode
@@ -33,17 +34,20 @@ class Level:
             player = EntityFactory.get_entity('Player2')
             player.score = player_score[1]
             self.entity_list.append(player)
-        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
-        pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)  # 100ms
 
+        if name == 'Level3':
+            spawn_time = 2000
+        else:
+            spawn_time = SPAWN_TIME
+        pygame.time.set_timer(EVENT_ENEMY, spawn_time)
 
+        pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)
 
-    def run(self, player_score: list[int], clock):  # Agora aceita o argumento clock
+    def run(self, player_score: list[int], clock):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
         pygame.mixer_music.play(-1)
 
-        # printed text
-        text_size = 14  # Define text_size aqui
+        text_size = 14
 
         while True:
             clock.tick(60)
@@ -63,7 +67,13 @@ class Level:
                     pygame.quit()
                     sys.exit()
                 if event.type == EVENT_ENEMY:
-                    choice = random.choice(('Enemy1', 'Enemy2'))
+                    if self.name == 'Level3':
+                        choice = 'Enemy3'
+                        spawn_time = 2000
+                    else:
+                        choice = random.choice(('Enemy1', 'Enemy2'))
+                        spawn_time = SPAWN_TIME
+                    pygame.time.set_timer(EVENT_ENEMY, spawn_time)
                     self.entity_list.append(EntityFactory.get_entity(choice))
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STEP
@@ -83,21 +93,17 @@ class Level:
                 if not found_player:
                     return False
 
-
-            # printed text
             self.level_text(text_size, f'{self.name} - Timeout: {self.timeout / 100 :.1f}s', C_WHITE, (10, 5))
             self.level_text(text_size, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(text_size, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
 
-            # Collisions
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
 
-
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
-        # Corrigindo a chamada para incluir o argumento antialias
-        text_surf: Surface = text_font.render(text, True, text_color)  # O True ativa o antialiasing
+
+        text_surf: Surface = text_font.render(text, True, text_color)
         text_rect: Rect = text_surf.get_rect(left=text_pos[0], top=text_pos[1])
         self.window.blit(source=text_surf, dest=text_rect)

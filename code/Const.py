@@ -8,8 +8,6 @@ C_GREE = (0, 128, 0)
 C_CYAN = (0, 128, 128)
 
 # E
-
-
 EVENT_ENEMY = pygame.USEREVENT + 1
 
 EVENT_TIMEOUT = pygame.USEREVENT + 2
@@ -35,6 +33,13 @@ ENTITY_SCORE = {
     'Enemy1Shot': 0,
     'Enemy2': 125,
     'Enemy2Shot': 0,
+    'level3Bg0': 0,
+    'level3Bg1': 0,
+    'level3Bg2': 0,
+    'level3Bg3': 0,
+    'level3Bg4': 0,
+    'Enemy3': 200,
+    'Enemy3Shot': 0,
 }
 
 ENTITY_SPEED = {
@@ -58,6 +63,13 @@ ENTITY_SPEED = {
     'Enemy1Shot': 5,
     'Enemy2': 1,
     'Enemy2Shot': 2,
+    'level3Bg0': 0,
+    'level3Bg1': 1,
+    'level3Bg2': 2,
+    'level3Bg3': 3,
+    'level3Bg4': 4,
+    'Enemy3': 1,
+    'Enemy3Shot': 6,
 }
 
 ENTITY_HEALTH = {
@@ -81,6 +93,13 @@ ENTITY_HEALTH = {
     'Enemy1Shot': 1,
     'Enemy2': 60,
     'Enemy2Shot': 1,
+    'level3Bg0': 999,
+    'level3Bg1': 999,
+    'level3Bg2': 999,
+    'level3Bg3': 999,
+    'level3Bg4': 999,
+    'Enemy3': 80,
+    'Enemy3Shot': 1,
 }
 
 ENTITY_DAMAGE = {
@@ -104,6 +123,13 @@ ENTITY_DAMAGE = {
     'Enemy1Shot': 20,
     'Enemy2': 1,
     'Enemy2Shot': 15,
+    'level3Bg0': 0,
+    'level3Bg1': 0,
+    'level3Bg2': 0,
+    'level3Bg3': 0,
+    'level3Bg4': 0,
+    'Enemy3': 1,
+    'Enemy3Shot': 30,
 }
 
 ENTITY_SHOT_DELAY = {
@@ -111,6 +137,7 @@ ENTITY_SHOT_DELAY = {
     'Player2': 15,
     'Enemy1': 100,
     'Enemy2': 200,
+    'Enemy3': 45,
 }
 
 # M
