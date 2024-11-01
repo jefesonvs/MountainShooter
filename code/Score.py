@@ -21,6 +21,7 @@ class Score:
         pygame.mixer_music.play(-1)
         db_proxy = DBProxy('DBScore')
         name = ''
+        score = 0  # Inicializa score com 0
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
@@ -66,7 +67,7 @@ class Score:
         pygame.mixer_music.play(-1)
         self.window.blit(source=self.surf, dest=self.rect)
         self.score_text(48, 'TOP 10 SCORE', C_YELLOW, SCORE_POS['Title'])
-        self.score_text(20, 'NAME   SCORE       DATE    ', C_YELLOW, SCORE_POS['Label'])
+        self.score_text(20, 'NAME SCORE             DATE', C_YELLOW, SCORE_POS['Label'])
         db_proxy = DBProxy('DBScore')
         list_score = db_proxy.retrieve_top10()
         db_proxy.close()
